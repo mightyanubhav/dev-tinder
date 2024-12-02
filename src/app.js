@@ -2,9 +2,12 @@ const express = require("express");
 const app = express();
 const PORT = 7777;
 
-app.get("/user", (req, res)=>{
-    console.log(req.query);
-    res.send({firstName: "anubhav", lastName: "shukla"});
+app.use("/user", (req, res, next)=>{
+
+    console.log("first handler");
+    // next();
+    res.send("first response sent");
+
 })
 
 app.listen(PORT, ()=>{
