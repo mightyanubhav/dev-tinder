@@ -1,19 +1,24 @@
 const express = require("express");
 const app = express();
+const PORT = 7777;
 
-const port = 3000;
-// 
-app.use("/baki", (req, res) =>{
-    res.send("Hello from the server");
+app.get("/user", (req, res)=>{
+    res.send({firstName: "anubhav", lastName: "shukla"});
 })
-app.use("/k", (req, res) =>{
-    res.send("Hello from the home");
+app.post("/user", (req, res)=>{
+    //savign data to data base
+    res.send("data is saved to the database");
 })
-app.use("/test", (req, res)=>{
-    res.send("hello from test");
+app.delete("/user", (req, res)=>{
+    //data deleted from database.
+    res.send("data is deleted from the database");
 })
-// the arrow funciton inside app.use is request handler
+// when we use app.use it gives response to all http request , to avoid we use different like , get, post etc.
 
-app.listen(port, () =>{
-    console.log(`server up and running on port ${port}`);
+// app.use("/result/test", (req, res)=>{
+//     res.send("result test");
+// })
+
+app.listen(PORT, ()=>{
+    console.log(`server up and running on ${PORT}` );
 })
