@@ -13,7 +13,7 @@ app.post("/signup", async(req, res) =>{
         password : "gmailID", 
     });
     await user.save();
-    res.send("user added successfully");
+    res.send("user added successfully now");
 })
 
 
